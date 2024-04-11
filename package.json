@@ -16,10 +16,13 @@
     "@mui/material-nextjs": "^5.15.11",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
+    "i18next": "^23.11.0",
+    "i18next-resources-to-backend": "^1.2.0",
     "lodash-es": "^4.17.21",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-i18next": "^14.1.0",
     "react-redux": "^9.1.0",
     "sass": "^1.74.1"
   },
