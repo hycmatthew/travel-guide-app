@@ -1,13 +1,9 @@
 import React from 'react'
-import { useTranslation } from "@/lib/i18n";
+import { useTranslations } from 'next-intl';
 
-interface HeadertProps { 
-  lang: string
-}
+const HeaderLayout = () => {
 
-const HeaderLayout = async({ lang }: HeadertProps) => {
-
-  const { t } = await useTranslation(lang, "translation");
+  const t = useTranslations();
 
   return (
     <header>

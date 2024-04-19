@@ -7,8 +7,6 @@ import { StoreProvider } from '@/lib/StoreProvider'
 import HeaderLayout from '../appLayout/header'
 import FooterLayout from '../appLayout/footer'
 import { ReactElement } from 'react'
-import { useTranslation } from '@/lib/i18n'
-import { languages } from '@/lib/i18n/settings'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,22 +20,17 @@ interface RootLayoutProps {
   params: { lang: string }
 }
 
-export async function generateStaticParams() {
-  return languages.map((lang) => ({ lang }))
-}
-
 export default async function RootLayout({
   children,
   params: { lang },
 }: RootLayoutProps) {
-  const { t } = await useTranslation(lang, "translation");
-  
+
   return (
     <StoreProvider>
       <html lang={lang}>
         <body className={inter.className}>
           <AppRouterCacheProvider>
-            <HeaderLayout lang={lang} />
+            <HeaderLayout />
             <main>{children}</main>
             <FooterLayout lang={lang} />
           </AppRouterCacheProvider>
