@@ -1,0 +1,27 @@
+.footer-container{
+    display: flex;
+    padding: 3rem 0rem 1rem 0rem;
+    background-color: #1e3d59;
+    .footer-element-container{
+        width: 50%;
+    }
+    .footer-lang-container{
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+        .lang-item{
+            color: #fff;
+            padding: 0rem 0.65rem;
+
+            a, button{
+                color: #fff;
+                font-weight: 600;
+
+                &.Mui-disabled{
+                    color: #bfbfbf;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}

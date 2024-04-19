@@ -5,7 +5,8 @@ import { Grid } from "@mui/material"
 
 import { selectFreeGameDataList, freeGameDataAsyn } from '../../lib/features/freeGameData/gameDataSlice';
 import { useAppDispatch, useAppSelector } from '../../lib/hooks';
-import GameImageBox, { ImageBoxType } from '../components/ImageBox/ImageBox';
+import ImageBox, { ImageBoxType } from '../components/ImageBox/ImageBox';
+import ImageButton, { ImageButtonType } from '../components/ImageButton/ImageButton';
 import { SkeletonLogic } from '@/utils/SkeletonLogic';
 import FreeGameType from '@/constant/gameTypes/FreeGameType';
 
@@ -21,7 +22,7 @@ export default function Home() {
     <>
       <Grid container spacing={2}>
       {
-        SkeletonLogic(freeGameData, 3).map((item: FreeGameType | undefined) => {
+        SkeletonLogic(freeGameData, 3).map((item: FreeGameType | undefined, index: number) => {
           let temp: ImageBoxType | null = null
           if(item !== undefined){
             temp = {
@@ -33,8 +34,28 @@ export default function Home() {
             }
           }
           return (
-            <Grid item xs={4}>
-              <GameImageBox item={temp}></GameImageBox>
+            <Grid item xs={4} key={index}>
+              <ImageBox item={temp}></ImageBox>
+            </Grid>
+          )
+        })
+      }
+      </Grid>
+
+      <Grid container spacing={2}>
+      {
+        SkeletonLogic(freeGameData, 3).map((item: FreeGameType | undefined, index: number) => {
+          let temp: ImageButtonType | null = null
+          if(item !== undefined){
+            temp = {
+              link: item.Path,
+              linkLabel: "Link",
+              image: item.ImagePath
+            }
+          }
+          return (
+            <Grid item xs={2} key={index}>
+              <ImageButton item={temp}></ImageButton>
             </Grid>
           )
         })

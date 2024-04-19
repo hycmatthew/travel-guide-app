@@ -1,15 +1,19 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
+import { useTranslation } from "@/lib/i18n";
 
-type HeaderLayoutProps = {
-  children: ReactNode
+interface HeadertProps { 
+  lang: string
 }
 
-const HeaderLayout = () => {
+const HeaderLayout = async({ lang }: HeadertProps) => {
+
+  const { t } = await useTranslation(lang, "translation");
+
   return (
     <header>
       <div className="header-container">
         <div className="header-icon"></div>
-        <div className="header-menu"></div>
+        <div className="header-menu">{t("city")}</div>
       </div>
     </header>
   )
