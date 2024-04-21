@@ -1,14 +1,19 @@
+import createNextIntlPlugin from 'next-intl/plugin'
+
+const withNextIntl = createNextIntlPlugin()
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    i18n: {
-      // These are all the locales you want to support in
-      // your application
-      locales: ['en', 'zh-CN', 'zh-HK'],
-      // This is the default locale you want to be used when visiting
-      // a non-locale prefixed path e.g. `/hello`
-      defaultLocale: 'en',
-      localeDetection: false,
-    },
-  }
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn1.epicgames.com',
+        port: '',
+        pathname: '**',
+      },
+    ],
+  },
+}
 
-export default nextConfig;
+export default withNextIntl(nextConfig)
