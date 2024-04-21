@@ -1,5 +1,6 @@
 import React from 'react'
 import Skeleton from '@mui/material/Skeleton'
+import Image from 'next/image'
 import './ImageButton.scss'
 
 export interface ImageButtonType{
@@ -18,7 +19,12 @@ const ImageButton = (data: ImageButtonProps) => {
     return(
       <div className="image-button-container">
         <div className="image-button">
-          <img src={data.item.image} />
+          <Image
+            src={data.item.image}
+            width={160}
+            height={80}
+            alt={data.item.linkLabel}
+          />
         </div>
         <div className="content-block">
           <a href={data.item.link} target='_blank'>{data.item.linkLabel}</a>

@@ -1,13 +1,13 @@
 import React from 'react'
-import { useTranslation } from "@/lib/i18n";
+import { useTranslations } from 'next-intl';
 
 interface SiteMapPageProps { 
   params: { lang: string }
 }
 
-const SiteMapPage = async({params: { lang }}: SiteMapPageProps) => {
+const SiteMapPage = ({params: { lang }}: SiteMapPageProps) => {
 
-  const { t } = await useTranslation(lang, "translation");
+  const t = useTranslations();
 
   return (
     <>
