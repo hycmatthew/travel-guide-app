@@ -12,6 +12,7 @@ import ImageBox, { ImageBoxType } from '../components/ImageBox/ImageBox'
 import { SkeletonLogic } from '@/utils/SkeletonLogic'
 import FreeGameType from '@/constant/gameTypes/FreeGameType'
 import PageBanner, { PageBannerType } from '../components/PageBanner/PageBanner'
+import HeroBanner, { HeroBannerType } from '../components/HeroBanner/HeroBanner'
 
 
 export default function Home() {

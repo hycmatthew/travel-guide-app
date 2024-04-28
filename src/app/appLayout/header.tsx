@@ -18,12 +18,13 @@ const HeaderLayout = () => {
       <div className="header-container row">
         <div className="header-menu-container">
           <div className="header-icon">
+            {/*
             <Image
               src="/paper-plane.png"
               alt="Main Icon"
               width="64"
               height="64"
-            />
+            />*/}
           </div>
           <div className="header-menu">
             <ul>
@@ -68,6 +69,7 @@ const HeaderLayout = () => {
                   </li>
                 )
               })}
+              <div className="glass-bg"></div>
             </ul>
           </div>
         </div>
