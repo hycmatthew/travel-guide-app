@@ -1,6 +1,8 @@
 import React from 'react'
+import Image from 'next/image'
 import Skeleton from '@mui/material/Skeleton'
 import './ImageBox.scss'
+import CommonButton from '../CommonButton/CommonButton'
 
 export interface ImageBoxType{
   header: string
@@ -20,12 +22,20 @@ const ImageBox = (data: ImageBoxProps) => {
     return(
       <div className="image-block-container">
         <div className="image-block">
-          <img src={data.item.image} />
+          <Image
+            src={data.item.image}
+            width={500}
+            height={300}
+            alt={data.item.header}
+          />
         </div>
         <div className="content-block">
-          <h3>{data.item.header}</h3>
-          <p>{data.item.desc}</p>
-          <a href={data.item.link} target='_blank'>{data.item.linkLabel}</a>
+          <div className='text-container'>
+            <h3>{data.item.header}</h3>
+            <p>{data.item.desc}</p>
+          </div>
+          
+          <CommonButton link={data.item.link} linkLabel={data.item.linkLabel}></CommonButton>
         </div>
       </div>
     )

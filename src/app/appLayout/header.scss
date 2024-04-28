@@ -1,44 +1,81 @@
 @import '../styles/variables.scss';
 
+$header-height: 4rem;
 
-.header-container{
+.header-container {
+  position: absolute;
+  width: 100%;
+  margin: 0 auto;
+  background-color: transparent;
+  transition: background-color 0.25s ease-in;
+  z-index: 999;
+
+  &:hover {
+    background-color: #fff;
+    // background-color: rgba(255,255,255,0.85);
+  }
+
+  .header-menu-container {
     display: flex;
-    max-width: $lg-screen-width;
-    width: 100%;
-    margin: 0 auto;
     align-items: center;
+    height: $header-height;
 
-    .header-icon{
-        padding: 0rem 1rem;
+    .header-icon {
+      padding: 0rem 1rem;
+      height: 100%;
     }
 
-    .header-menu{
+    .header-menu {
+      display: flex;
+      align-items: center;
+      padding: 0rem 1rem;
+      height: 100%;
+
+      ul {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      li {
+        list-style: none;
+        display: flex;
+        align-items: center;
         padding: 0rem 2rem;
+        height: 100%;
+        color: #fff;
 
-        li{
-            list-style: none;
+        transition: all 0.25s ease-in;
+        webkit-transition: all 0.25s ease-in;
+        -moz-transition: all 0.25s ease-in;
+        -ms-transition: all 0.25s ease-in;
+        -o-transition: all 0.25s ease-in;
 
-            .header-menu-dropdown{
-                display: none;
-                position: absolute;
-                width: 100%;
-                left: 0px;
-                background-color: #fff;
-                top: 4rem;
-                min-height: 5rem;
-
-                &:hover{
-                    display: block;
-                }
-            }
-
-            &:hover{
-                border-bottom: 1px solid #2d2d2d;
-
-                .header-menu-dropdown{
-                    display: block;
-                }
-            }
+        &:hover {
+          color: #000;
+          .header-menu-dropdown .menu-drop-down-item-container {
+            height: auto;
+            opacity: 1;
+          }
         }
+
+        .header-menu-dropdown {
+          position: absolute;
+          width: 100%;
+          top: 4rem;
+          left: 0px;
+          background-color: #fff;
+          overflow: hidden;
+
+          .menu-drop-down-item-container {
+            opacity: 0;
+          }
+        }
+      }
     }
+
+    .menu-drop-down-item-container {
+      height: 0;
+    }
+  }
 }

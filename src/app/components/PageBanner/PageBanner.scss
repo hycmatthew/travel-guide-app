@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+
+.page-banner-container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .image-block {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+
+    img,
+    .skeleton-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .content-block {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    h3, p{
+      text-shadow: #000 0px 0 16px;
+      color: #fff;
+    }
+
+    h3,
+    .skeleton-h3 {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+    }
+    p,
+    .skeleton-p {
+      font-size: 1rem;
+      flex-grow: 1;
+    }
+  }
+}
+
+@media only screen and (max-width: $md-screen-width) {
+  .page-banner-container {
+    flex-direction: column-reverse;
+    .content-block {
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: $sm-screen-width) {
+  .page-banner-container {
+    flex-direction: column-reverse;
+    .content-block {
+      width: 100%;
+    }
+  }
+}

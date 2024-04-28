@@ -15,53 +15,61 @@ const HeaderLayout = () => {
 
   return (
     <header>
-      <div className="header-container">
-        <div className="header-icon">
-          <Image
-            src="/paper-plane.png"
-            alt="Main Icon"
-            width="64"
-            height="64"
-          />
-        </div>
-        <div className="header-menu">
-          <ul>
-            {continentList.map((continent) => {
-              return (
-                <li>
-                  <span>{t(continent)}</span>
-                  <div className="header-menu-dropdown">
-                    <div className="menu-drop-down-item-container">
-                      <Grid container spacing={1}>
-                        {SkeletonLogic(cityImageList, cityImageList.length).map(
-                          (item: CityImageType | undefined, index: number) => {
-                            let temp: ImageButtonType | null = null
-                            if (item !== undefined) {
-                              temp = {
-                                linkLabel: t(item.name),
-                                link: `/city/${item.imagePath}`,
-                                image: `/city-image/${item.imagePath}`,
+      <div className="header-container row">
+        <div className="header-menu-container">
+          <div className="header-icon">
+            <Image
+              src="/paper-plane.png"
+              alt="Main Icon"
+              width="64"
+              height="64"
+            />
+          </div>
+          <div className="header-menu">
+            <ul>
+              {continentList.map((continent) => {
+                return (
+                  <li>
+                    <span>{t(continent)}</span>
+                    <div className="header-menu-dropdown">
+                      <div className="menu-drop-down-item-container">
+                        <Grid container spacing={1}>
+                          {SkeletonLogic(
+                            cityImageList,
+                            cityImageList.length
+                          ).map(
+                            (
+                              item: CityImageType | undefined,
+                              index: number
+                            ) => {
+                              let temp: ImageButtonType | null = null
+                              if (item !== undefined) {
+                                temp = {
+                                  linkLabel: t(item.name),
+                                  link: `/city/${item.imagePath}`,
+                                  image: `/city-image/${item.imagePath}`,
+                                }
                               }
+                              return (
+                                <Grid
+                                  item
+                                  xs={2}
+                                  key={index}
+                                  className="menu-drop-down-item"
+                                >
+                                  <ImageButton item={temp}></ImageButton>
+                                </Grid>
+                              )
                             }
-                            return (
-                              <Grid
-                                item
-                                xs={2}
-                                key={index}
-                                className="menu-drop-down-item"
-                              >
-                                <ImageButton item={temp}></ImageButton>
-                              </Grid>
-                            )
-                          }
-                        )}
-                      </Grid>
+                          )}
+                        </Grid>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </header>

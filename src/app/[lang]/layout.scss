@@ -1,7 +1,12 @@
 @import '../styles/variables.scss';
 
 main {
-    max-width: $lg-screen-width;
+  width: 100%;
+  margin: 0 auto;
+
+  .row {
     width: 100%;
+    max-width: $lg-screen-width;
     margin: 0 auto;
+  }
 }
