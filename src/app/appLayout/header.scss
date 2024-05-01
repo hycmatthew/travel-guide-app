@@ -11,17 +11,12 @@ $header-height: 4rem;
   z-index: 999;
 
   &:hover {
-    background-color: #fff;
-    
     .header-menu-container::after {
-      box-shadow: none;
-    }
-
-    .header-menu-container .header-menu li {
-      color: #000;
+      // box-shadow: none;
     }
   }
 
+  /*
   .glass-bg{
     visibility: hidden;
     box-shadow: inset 0 0 0 3000px rgba(77,77,77,0.55);
@@ -34,6 +29,7 @@ $header-height: 4rem;
     left: 0px;
     z-index: -1000;
   }
+  */
 
   .header-menu-container {
     display: flex;
@@ -41,16 +37,16 @@ $header-height: 4rem;
     height: $header-height;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      box-shadow: inset 0 0 0 3000px rgba(191,191,191,0.25);
+      box-shadow: inset 0 0 0 3000px rgba(191, 191, 191, 0.25);
       backdrop-filter: blur(8px);
       pointer-events: none;
-      z-index: -1; 
+      z-index: -1;
     }
 
     .header-icon {
@@ -84,27 +80,68 @@ $header-height: 4rem;
         -ms-transition: all 0.25s ease-in;
         -o-transition: all 0.25s ease-in;
 
+        span {
+          position: relative;
+
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #fff;
+            transition: width 0.3s ease-in-out;
+          }
+        }
+
         &:hover {
-          .header-menu-dropdown .menu-drop-down-item-container {
-            height: auto;
-            opacity: 1;
+          span:after {
+            width: 100%;
           }
 
+          .header-menu-dropdown {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+          }
+          /*
           & ~ .glass-bg {
             visibility: visible;
           }
+          */
         }
 
         .header-menu-dropdown {
           position: absolute;
-          width: 100%;
+          visibility: hidden;
+          opacity: 0;
           top: 4rem;
           left: 0px;
           background-color: #fff;
           overflow: hidden;
+          border-radius: 0.5rem;
+          height: 0px;
+          box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+          transition: 0.5s 0.1s height, 0.5s 0.1s padding, 0.5s 0.1s margin,
+            0.3s color, 0.6s visibility, 0.5s opacity;
 
           .menu-drop-down-item-container {
-            opacity: 0;
+            height: auto;
+            width: auto;
+            opacity: 1;
+            display: flex;
+            padding: 0.25rem;
+
+            .menu-drop-down-item {
+              width: 200px;
+              padding: 0.25rem;
+
+              .image-button-container {
+                color: #2d2d2d;
+              }
+            }
           }
         }
       }

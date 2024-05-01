@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'
+import { NextIntlClientProvider, useMessages } from 'next-intl'
 import { Noto_Sans_TC } from 'next/font/google'
 import './globals.css'
 import './layout.scss'
@@ -24,20 +25,24 @@ interface RootLayoutProps {
   params: { lang: string }
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params: { lang },
 }: RootLayoutProps) {
+  const messages = useMessages()
+
   return (
     <StoreProvider>
       <html lang={lang}>
-        <body className={inter.className}>
-          <AppRouterCacheProvider>
-            <HeaderLayout />
-            <main>{children}</main>
-            <FooterLayout lang={lang} />
-          </AppRouterCacheProvider>
-        </body>
+        <NextIntlClientProvider locale={lang} messages={messages}>
+          <body className={inter.className}>
+            <AppRouterCacheProvider>
+              <HeaderLayout />
+              <main>{children}</main>
+              <FooterLayout lang={lang} />
+            </AppRouterCacheProvider>
+          </body>
+        </NextIntlClientProvider>
       </html>
     </StoreProvider>
   )
