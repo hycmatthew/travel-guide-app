@@ -2,13 +2,10 @@ import React from 'react'
 import Image from 'next/image'
 import Skeleton from '@mui/material/Skeleton'
 import './PageBanner.scss'
-import CommonButton from '../CommonButton/CommonButton'
 
 export interface PageBannerType {
   header: string
   desc: string
-  linkLabel: string
-  link: string
   image: string
 }
 
@@ -25,7 +22,7 @@ const PageBanner = (data: PageBannerProps) => {
             src={data.item.image}
             width={1000}
             height={480}
-            alt={data.item.linkLabel}
+            alt={data.item.header}
           />
         </div>
         <div className="content-block">

@@ -11,7 +11,6 @@ import { useAppDispatch, useAppSelector } from '../../lib/hooks'
 import ImageBox, { ImageBoxType } from '../components/ImageBox/ImageBox'
 import { SkeletonLogic } from '@/utils/SkeletonLogic'
 import FreeGameType from '@/constant/gameTypes/FreeGameType'
-import PageBanner, { PageBannerType } from '../components/PageBanner/PageBanner'
 import HeroBanner, { HeroBannerType } from '../components/HeroBanner/HeroBanner'
 
 
@@ -28,7 +27,7 @@ export default function Home() {
       <Grid container spacing={2}>
         {SkeletonLogic(freeGameData, 1).map(
           (item: FreeGameType | undefined, index: number) => {
-            let temp: PageBannerType | null = null
+            let temp: HeroBannerType | null = null
             if (item !== undefined) {
               temp = {
                 header: item.Name,
@@ -40,7 +39,7 @@ export default function Home() {
             }
             return (
               <Grid item xs={12} key={index}>
-                <PageBanner item={temp}></PageBanner>
+                <HeroBanner item={temp}></HeroBanner>
               </Grid>
             )
           }
