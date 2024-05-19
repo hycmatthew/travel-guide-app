@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/navigation'
 import './header.scss'
 import { cityImageList, CityImageType } from '@/data/cityList'
 import { continentList } from '@/data/continentList'
@@ -13,7 +14,7 @@ const HeaderLayout = () => {
 
   return (
     <header>
-      <div className="header-container row">
+      <div className="header-container">
         <div className="header-menu-container">
           <div className="header-icon">
             {/*
@@ -26,9 +27,10 @@ const HeaderLayout = () => {
           </div>
           <div className="header-menu">
             <ul>
+              <li><Link href="/"><span>Home</span></Link></li>
               {continentList.map((continent) => {
                 return (
-                  <li>
+                  <li key={continent}>
                     <span>{t(continent)}</span>
                     <div className="header-menu-dropdown">
                       <div className="menu-drop-down-item-container">

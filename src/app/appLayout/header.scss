@@ -35,6 +35,8 @@ $header-height: 4rem;
     display: flex;
     align-items: center;
     height: $header-height;
+    max-width: 1440px;
+    margin: 0 auto;
 
     &::after {
       content: '';

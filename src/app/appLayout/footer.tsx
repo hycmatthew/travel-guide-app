@@ -23,15 +23,17 @@ const FooterLayout = ({ lang }: FooterLayoutProps) => {
   return (
     <footer>
       <div className="footer-container">
-        <div className="footer-element-container"></div>
-        <div className="footer-lang-container">
-          {langOptions.map((item: LanguageType) => {
-            return (
-              <div className="lang-item" key={item.code}>
-                <Button disabled={item.lang == lang} onClick={()=>changeLang(item.lang)}>{item.label}</Button>
-              </div>
-            )
-          })}
+        <div className="footer-row">
+          <div className="footer-element-container"></div>
+          <div className="footer-lang-container">
+            {langOptions.map((item: LanguageType) => {
+              return (
+                <div className="lang-item" key={item.code}>
+                  <Button disabled={item.lang == lang} onClick={()=>changeLang(item.lang)}>{item.label}</Button>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </footer>
