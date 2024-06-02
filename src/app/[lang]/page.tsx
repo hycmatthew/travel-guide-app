@@ -12,6 +12,7 @@ import ImageBox, { ImageBoxType } from '../components/ImageBox/ImageBox'
 import { SkeletonLogic } from '@/utils/SkeletonLogic'
 import FreeGameType from '@/constant/gameTypes/FreeGameType'
 import HeroBanner, { HeroBannerType } from '../components/HeroBanner/HeroBanner'
+import CommonTitle from '../components/CommonTitle/CommonTitle'
 
 
 export default function Home() {
@@ -45,6 +46,9 @@ export default function Home() {
           }
         )}
       </Grid>
+      <div>
+        <CommonTitle variant="h4" text="123" />
+      </div>
       <div className="row">
         <Grid container spacing={2} columns={{ xs: 4, sm: 12 }}>
           {SkeletonLogic(freeGameData, 3).map(

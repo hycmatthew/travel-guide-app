@@ -23,13 +23,13 @@ const HeroBanner = (data: HeroBannerProps) => {
         <div className="content-block">
           <h3>{data.item.header}</h3>
           <p>{data.item.desc}</p>
-          <CommonButton link={data.item.link} linkLabel={data.item.linkLabel}></CommonButton>
+          <CommonButton buttonType="text" link={data.item.link} linkLabel={data.item.linkLabel}></CommonButton>
         </div>
         <div className="image-block">
           <Image
             src={data.item.image}
             width={1000}
-            height={450}
+            height={600}
             alt={data.item.linkLabel}
           />
         </div>
@@ -38,44 +38,6 @@ const HeroBanner = (data: HeroBannerProps) => {
   } else {
     return (
       <div className="image-banner-container">
-        <div className="content-block">
-          <Skeleton
-            animation="wave"
-            className="skeleton-h3"
-            variant="text"
-            sx={{ fontSize: '1.5rem' }}
-          />
-          <Skeleton
-            animation="wave"
-            className="skeleton-p"
-            variant="text"
-            sx={{ fontSize: '1rem' }}
-          />
-          <Skeleton
-            animation="wave"
-            className="skeleton-p"
-            variant="text"
-            sx={{ fontSize: '1rem' }}
-          />
-          <Skeleton
-            animation="wave"
-            className="skeleton-p"
-            variant="text"
-            sx={{ fontSize: '1rem' }}
-          />
-          <Skeleton
-            animation="wave"
-            className="skeleton-p"
-            variant="text"
-            sx={{ fontSize: '1rem' }}
-          />
-          <Skeleton
-            animation="wave"
-            className="skeleton-a"
-            variant="text"
-            sx={{ fontSize: '1rem' }}
-          />
-        </div>
         <div className="image-block">
           <Skeleton
             animation="wave"
