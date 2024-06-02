@@ -1,19 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
 import Skeleton from '@mui/material/Skeleton'
-import './PageBanner.scss'
+import './SectionBlock.scss'
 
-export interface PageBannerType {
+export interface SectionBlockType {
   header: string
   desc: string
   image: string
 }
 
-interface PageBannerProps {
-  item?: PageBannerType | null
+interface SectionBlockProps {
+  item?: SectionBlockType | null
 }
 
-const PageBanner = (data: PageBannerProps) => {
+const SectionBlock = (data: SectionBlockProps) => {
   if (data.item != null) {
     return (
       <div className="page-banner-container">
@@ -46,4 +46,4 @@ const PageBanner = (data: PageBannerProps) => {
   }
 }
 
-export default PageBanner
+export default SectionBlock
