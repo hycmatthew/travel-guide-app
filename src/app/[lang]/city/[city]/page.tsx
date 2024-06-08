@@ -1,10 +1,11 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import PageBanner, { PageBannerType } from '@/app/components/PageBanner/PageBanner'
-import FreeGameType from '@/constant/gameTypes/FreeGameType'
 import { SkeletonLogic } from '@/utils/SkeletonLogic'
 import { Grid } from '@mui/material'
 import { MockCityData, MockCityDataType } from '@/data/mockData'
+
+import './page.scss';
 
 interface CityInfoPageProps {
   params: { city: string }
@@ -34,8 +35,10 @@ const CityInfoPage = ({ params: { city } }: CityInfoPageProps) => {
           }
         )}
       </div>
-      <h1>Test</h1>
-      <p>{t(city)}</p>
+      <div className='content-container'>
+        <h1>Test</h1>
+        <p>{t(city)}</p>
+      </div>
     </>
   )
 }

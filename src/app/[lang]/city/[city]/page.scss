@@ -1,0 +1,7 @@
+@import '../../../styles/variables.scss';
+
+.content-container{
+    max-width: $lg-screen-width;
+    margin: 0 auto;
+    padding: $default-padding;
+}
